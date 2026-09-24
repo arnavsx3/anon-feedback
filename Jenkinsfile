@@ -13,6 +13,9 @@ pipeline {
         }
 
         stage("SonarQube") {
+            agent {
+                label "ec2-sonar"
+            }
             steps {
                 sonarScan("SonarQube-server", "anon-feedback")
             }
