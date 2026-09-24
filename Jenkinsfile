@@ -14,7 +14,7 @@ pipeline {
 
         stage("SonarQube") {
             steps {
-                sonarScan("SonarQube")
+                sonarScan("SonarQube", "anon-feedback")
             }
         }
 
