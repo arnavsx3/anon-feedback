@@ -12,6 +12,12 @@ pipeline {
             }
         }
 
+        stage("SonarQube") {
+            steps {
+                sonarScan("SonarQube")
+            }
+        }
+
         stage("Build") {
             steps {
                 buildDocker()
