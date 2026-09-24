@@ -17,6 +17,7 @@ pipeline {
                 label "ec2-sonar"
             }
             steps {
+                code("https://github.com/arnavsx3/anon-feedback.git")
                 sonarScan("SonarQube-server", "anon-feedback")
             }
         }
