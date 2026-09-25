@@ -30,12 +30,12 @@ pipeline {
             }
         }
 
-        stage("Dependency Check") {
+        stage("OSV Scanner") {
             agent {
                 label "ec2-sonar"
             }
             steps {
-                owaspDependencyCheck("Owasp-dc")
+                osvScan()
             }
         }
 
