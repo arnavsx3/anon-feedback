@@ -40,18 +40,27 @@ pipeline {
         }
 
         stage("Build") {
+            agent {
+                label "ec2-sonar"
+            }
             steps {
                 buildDocker()
             }
         }
 
-        stage("Test") {
+        stage("Trivy Image") {
+            agent {
+                label "ec2-sonar"
+            }
             steps {
-                test()
+                trivyImageScan()
             }
         }
 
         stage("Deploy") {
+            agent {
+                label "ec2-sonar"
+            }
             steps {
                 injectEnv("anon-feedback-env")
                 deploy()
