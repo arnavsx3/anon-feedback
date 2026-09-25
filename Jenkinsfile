@@ -45,6 +45,7 @@ pipeline {
             }
             steps {
                 buildDocker()
+                sh 'docker compose pull nginx'
             }
         }
 
