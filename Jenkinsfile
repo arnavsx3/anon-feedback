@@ -68,5 +68,14 @@ pipeline {
             }
         }
 
+        stage("ZAP") {
+            agent {
+                label "ec2-sonar"
+            }
+            steps {
+                zapScan()
+            }
+        }
+
     }
 }
