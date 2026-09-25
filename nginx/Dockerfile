@@ -1,5 +1,3 @@
-FROM nginx:alpine
-
-RUN apk upgrade --no-cache
+FROM nginxinc/nginx-unprivileged:alpine
 
 COPY nginx.conf /etc/nginx/nginx.conf
