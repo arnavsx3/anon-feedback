@@ -30,6 +30,15 @@ pipeline {
             }
         }
 
+        stage("Dependency Check") {
+            agent {
+                label "ec2-sonar"
+            }
+            steps {
+                dependencyCheck("Owasp-dc")
+            }
+        }
+
         stage("Build") {
             steps {
                 buildDocker()
