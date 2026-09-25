@@ -35,7 +35,7 @@ pipeline {
                 label "ec2-sonar"
             }
             steps {
-                dependencyCheck("Owasp-dc", "nvd-api-key")
+                owaspDependencyCheck("Owasp-dc", "nvd-api-key")
             }
         }
 
